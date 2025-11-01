@@ -53,12 +53,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
       - name: node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
@@ -79,12 +79,12 @@ jobs:
           - name: "aca-shared"
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
       - name: node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
@@ -103,11 +103,11 @@ jobs:
         run: exit 1
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
       - name: Setup node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
@@ -140,11 +140,11 @@ jobs:
         run: exit 1
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
       - name: Setup node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
@@ -177,18 +177,18 @@ jobs:
         run: exit 1
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
       - name: Setup node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
       - uses: ./.github/actions/setup
         with:
           npm_tag: ${{ inputs.npm-tag }}
-      - uses: Alfresco/alfresco-build-tools/.github/actions/configure-git-author@v8.19.1
+      - uses: Alfresco/alfresco-build-tools/.github/actions/configure-git-author@v9.3.2
         with:
           username: ${{ vars.BOT_GITHUB_USERNAME }}
           email: ${{ vars.BOT_GITHUB_EMAIL }}
@@ -213,12 +213,12 @@ jobs:
         run: exit 1
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 2
 
       - name: Setup node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
@@ -246,10 +246,10 @@ jobs:
       actions: read
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Push Source Files to Crowdin
-        uses: crowdin/github-action@b8012bd5491b8aa8578b73ab5b5f5e7c94aaa6e2 # v2.7.0
+        uses: crowdin/github-action@08713f00a50548bfe39b37e8f44afb53e7a802d4 # v2.12.0
         with:
           upload_sources: true
           upload_sources_args: --delete-obsolete
